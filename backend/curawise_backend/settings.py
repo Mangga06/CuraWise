@@ -11,12 +11,10 @@ load_dotenv(BASE_DIR.parent / ".env")
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dev-secret-key")
 DEBUG = os.getenv("DJANGO_DEBUG", "True").lower() == "true"
-ALLOWED_HOSTS = [host.strip() for host in os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
-                  "curawise-687s.onrender.com", "localhost","127.0.0.1"]
+ALLOWED_HOSTS = [host.strip() for host in os.getenv("DJANGO_ALLOWED_HOSTS", "curawise-687s.onrender.com,127.0.0.1,localhost").split(",")]
 # Next.js dev server proxies with X-Forwarded-Host (e.g. localhost:3000) so cookies/sessions match the browser origin.
 USE_X_FORWARDED_HOST = True
 APPEND_SLASH = False
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
